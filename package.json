@@ -2,10 +2,9 @@
   "name": "react-native-reverb",
   "version": "1.0.0",
   "description": "React Native TurboModule wrapper for Laravel Reverb WebSocket",
-  "main": "lib/commonjs/index.js",
-  "module": "lib/module/index.js",
-  "types": "lib/typescript/index.d.ts",
-  "react-native": "src/index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "react-native": "index.ts",
   "codegenConfig": {
     "name": "NativeReverb",
     "type": "modules",

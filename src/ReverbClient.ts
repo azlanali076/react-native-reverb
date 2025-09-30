@@ -2,7 +2,7 @@ import { DeviceEventEmitter, EmitterSubscription } from "react-native";
 import NativeReverb, { NativeReverbOptions } from "./specs/NativeReverb";
 
 const callbacks: Record<string, (data: any) => void> = {};
-export const NOTIFICATION =
+const NOTIFICATION =
   "Illuminate\\Notifications\\Events\\BroadcastNotificationCreated";
 
 class ReverbChannel {
