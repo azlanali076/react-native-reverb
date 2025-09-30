@@ -1,0 +1,37 @@
+{
+  "name": "react-native-reverb",
+  "version": "1.0.0",
+  "description": "React Native TurboModule wrapper for Laravel Reverb WebSocket",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.ts",
+  "codegenConfig": {
+    "name": "NativeReverb",
+    "type": "modules",
+    "jsSrcsDir": "src/specs",
+    "android": {
+      "javaPackageName": "com.flamesware.nativereverb"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react-native",
+    "turbo-module",
+    "laravel",
+    "reverb",
+    "websocket"
+  ],
+  "peerDependencies": {
+    "react": "^19.1.1",
+    "react-native": "^0.81.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

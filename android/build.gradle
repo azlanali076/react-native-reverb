@@ -1,0 +1,16 @@
+apply plugin: 'com.android.library'
+apply plugin: "com.facebook.react"
+
+android {
+    namespace "com.flamesware.nativereverb"
+    compileSdkVersion 34
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
+    }
+}
+
+dependencies {
+    implementation "com.facebook.react:react-native:+"
+}
