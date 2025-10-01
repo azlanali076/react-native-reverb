@@ -79,7 +79,7 @@ export class ReverbClient {
   constructor(options: NativeReverbOptions) {
     this.eventSubscription = DeviceEventEmitter.addListener(
       "ReverbEvent",
-      (payload) => {
+      (payload: any) => {
         const { channel, event, data } = payload;
         const key = `${channel}|${event}`;
 

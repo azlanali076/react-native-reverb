@@ -13,10 +13,10 @@
       "javaPackageName": "com.flamesware.nativereverb"
     },
     "ios": {
-        "modulesProvider": {
-          "NativeReverb": "NativeReverb"
-        }
-     }
+      "modulesProvider": {
+        "NativeReverb": "NativeReverb"
+      }
+    }
   },
   "scripts": {
     "build": "tsc",
@@ -34,6 +34,7 @@
     "react-native": "^0.81.4"
   },
   "devDependencies": {
+    "@types/react-native": "^0.73.0",
     "typescript": "^5.0.0"
   },
   "author": "Syed Azlan Ali <azlanali076@gmail.com>",
