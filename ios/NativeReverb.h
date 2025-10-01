@@ -5,7 +5,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NativeReverb/NativeReverb.h>
+#import <NativeReverbSpec/NativeReverbSpec.h>
 @class RCTBridge;
 @protocol RCTBridgeModule;
 

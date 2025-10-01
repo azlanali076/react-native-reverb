@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "12.0"
   s.source       = { :git => "https://github.com/azlanali076/react-native-reverb.git", :tag => s.version.to_s }
   
-  s.source_files = "ios/**/*.{h,mm}"
-  s.dependency 'React-Core'
-  s.dependency "React-Codegen"
+  s.source_files = "ios/**/*.{h,m,mm,cpp}"
+  s.private_header_files = "ios/**/*.h"
+
+  install_modules_dependencies(s)
 end

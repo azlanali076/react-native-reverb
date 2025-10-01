@@ -4,7 +4,7 @@
 //  Created by Syed Azlan Ali on 01/10/2025.
 //
 
-#import "RCTNativeReverb.h"
+#import "NativeReverb.h"
 #import <NativeReverb/NativeReverb.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBridgeModule.h>

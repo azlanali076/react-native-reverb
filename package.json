@@ -6,15 +6,17 @@
   "types": "lib/index.d.ts",
   "react-native": "index.ts",
   "codegenConfig": {
-    "name": "NativeReverb",
+    "name": "NativeReverbSpec",
     "type": "modules",
     "jsSrcsDir": "src/specs",
     "android": {
       "javaPackageName": "com.flamesware.nativereverb"
     },
     "ios": {
-      "moduleClass": "RCTNativeReverb"
-    }
+        "modulesProvider": {
+          "NativeReverb": "NativeReverb"
+        }
+     }
   },
   "scripts": {
     "build": "tsc",
