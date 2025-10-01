@@ -11,6 +11,9 @@
     "jsSrcsDir": "src/specs",
     "android": {
       "javaPackageName": "com.flamesware.nativereverb"
+    },
+    "ios": {
+      "moduleClass": "RCTNativeReverb"
     }
   },
   "scripts": {
@@ -31,6 +34,7 @@
   "devDependencies": {
     "typescript": "^5.0.0"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Syed Azlan Ali <azlanali076@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/azlanali076/react-native-reverb#readme"
 }

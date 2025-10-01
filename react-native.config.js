@@ -4,7 +4,9 @@ module.exports = {
       android: {
         sourceDir: "./android",
       },
-      ios: null, // add when you build iOS
+      ios: {
+        sourceDir: "./ios",
+      },
     },
   },
 };
