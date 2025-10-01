@@ -7,21 +7,14 @@ This package lets you connect to a Reverb server, subscribe/unsubscribe to chann
 
 ## 🚀 Installation
 
-### From npm (coming soon)
+### From npm
 ```sh
 npm install react-native-reverb
 ````
-
-### From GitHub
-
-```sh
-npm install github:azlanali076/react-native-reverb
-```
-
-or with yarn:
+### or with yarn:
 
 ```sh
-yarn add github:azlanali076/react-native-reverb
+yarn add react-native-reverb
 ```
 
 ---
@@ -66,12 +59,13 @@ await client.connect();
 // Subscribe to a channel
 const channel = await client.private(`App.Models.Order.${orderId}`);
 
-channel.listen('OrderUpdated', data => {
+// Listen for specific event
+channel.listen('OrderUpdated', (data: any) => {
   console.log('Order updated:', data);
 });
 
 // Listen for Laravel notifications
-channel.notifications(notification => {
+channel.notifications((notification: any) => {
   console.log('Notification received:', notification);
 });
 
@@ -88,19 +82,20 @@ await client.disconnect();
 
 ### `ReverbClient`
 
-* `new ReverbClient(options: NativeReverbOptions)` – create a client instance
+* `new ReverbClient(options: NativeReverbOptions): ReverbClient` – create a client instance
 * `connect(): Promise<void>` – connect to Reverb server
 * `disconnect(): Promise<void>` – disconnect & cleanup
 * `channel(name: string): Promise<ReverbChannel>` – subscribe to a public channel
 * `private(name: string): Promise<ReverbPrivateChannel>` – subscribe to a private channel
 
-### `ReverbChannel`
+### `ReverbChannel` | `ReverbPrivateChannel`
 
-* `listen(event: string, callback: (data) => void)` – listen for events
-* `notifications(callback: (data) => void)` – listen for Laravel notifications
-* `removeListener(event: string)` – stop listening to an event
-* `removeAllListeners()` – stop listening from all events and unsusbcribe the channel
-* `unsubscribe()` – unsubscribe from this channel
+* `listen(event: string, callback: (data: any) => void): Promise<void>` – listen for events
+* `notifications(callback: (data: any) => void): Promise<void>` – listen for Laravel notifications
+* `removeListener(event: string): Promise<void>` – stop listening to an event
+* `removeAllListeners(): Promise<void>` – stop listening from all events and unsusbcribe the channel
+* `unsubscribe(): Promise<void>` – unsubscribe from this channel
+* `getChannelName(): string` - get channel name
 
 ---
 
