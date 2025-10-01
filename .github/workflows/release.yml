@@ -1,0 +1,89 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # Get version from package.json
+      - name: Get package.json version
+        id: pkg
+        run: echo "VERSION=$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
+
+      # Get latest Git tag
+      - name: Get latest tag
+        id: tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0 || echo "v0.0.0")
+          echo "LATEST_TAG=$TAG" >> $GITHUB_ENV
+
+      # Compare versions
+      - name: Compare versions
+        id: cmp
+        run: |
+          NEW="v${{ env.VERSION }}"
+          OLD="${{ env.LATEST_TAG }}"
+          echo "NEW_VERSION=$NEW"
+          echo "OLD_VERSION=$OLD"
+
+          if [ "$NEW" = "$OLD" ]; then
+            echo "same=true" >> $GITHUB_ENV
+          else
+            echo "same=false" >> $GITHUB_ENV
+          fi
+
+      # Stop if version didn't change
+      - name: Skip if version not bumped
+        if: env.same == 'true'
+        run: echo "Version not changed. Skipping release."
+
+      # Generate changelog (for release body only)
+      - name: Generate changelog
+        if: env.same == 'false'
+        run: |
+          git log ${{ env.LATEST_TAG }}..HEAD --pretty=format:"* %s (%h)" > release-notes.md
+          cat release-notes.md
+
+      # Create Git tag
+      - name: Create Git Tag
+        if: env.same == 'false'
+        run: |
+          git config user.name "azlanali076"
+          git config user.email "azlanali076@gmail.com"
+          git tag v${{ env.VERSION }}
+          git push origin v${{ env.VERSION }}
+
+      # Create GitHub Release with changelog
+      - name: Create GitHub Release
+        if: env.same == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Release v${{ env.VERSION }}
+          body_path: release-notes.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Publish to npm
+      - name: Publish to npm
+        if: env.same == 'false'
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
