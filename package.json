@@ -1,6 +1,6 @@
 {
   "name": "react-native-reverb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native TurboModule wrapper for Laravel Reverb WebSocket",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

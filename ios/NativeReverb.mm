@@ -5,7 +5,7 @@
 //
 
 #import "NativeReverb.h"
-#import <NativeReverb/NativeReverb.h>
+#import <NativeReverbSpec/NativeReverbSpec.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBridgeModule.h>
 
