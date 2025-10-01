@@ -1,6 +1,6 @@
 {
   "name": "react-native-reverb",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Native TurboModule wrapper for Laravel Reverb WebSocket",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -27,7 +27,10 @@
     "turbo-module",
     "laravel",
     "reverb",
-    "websocket"
+    "websocket",
+    "bridge",
+    "ios",
+    "android"
   ],
   "peerDependencies": {
     "react": "^19.1.1",
@@ -37,7 +40,18 @@
     "@types/react-native": "^0.73.0",
     "typescript": "^5.0.0"
   },
-  "author": "Syed Azlan Ali <azlanali076@gmail.com>",
+  "author": {
+    "name": "Syed Azlan Ali",
+    "email": "azlanali076@gmail.com",
+    "url": "https://github.com/azlanali076"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/azlanali076/react-native-reverb#readme"
+  "homepage": "https://github.com/azlanali076/react-native-reverb#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azlanali076/react-native-reverb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/azlanali076/react-native-reverb/issues"
+  }
 }
