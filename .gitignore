@@ -51,4 +51,4 @@ jest-cache/
 jest-test-results.json
 
 # Others
-.env
+config.bat
