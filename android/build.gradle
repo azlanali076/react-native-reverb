@@ -3,11 +3,11 @@ apply plugin: "com.facebook.react"
 
 android {
     namespace "com.flamesware.nativereverb"
-    compileSdkVersion 34
+    compileSdkVersion rootProject.hasProperty('compileSdkVersion') ? rootProject.compileSdkVersion : 34
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion rootProject.hasProperty('minSdkVersion') ? rootProject.minSdkVersion : 24
+        targetSdkVersion rootProject.hasProperty('targetSdkVersion') ? rootProject.targetSdkVersion : 34
     }
 }
 
